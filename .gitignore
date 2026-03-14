@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+*.pyo
+finance_dashboard/data/finance.db
