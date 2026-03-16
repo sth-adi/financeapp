@@ -6,8 +6,10 @@ import pandas as pd
 from utils.database import get_transactions, get_recurring_items
 from utils.calculations import get_current_month_summary, get_recurring_monthly_cost
 from utils.simulator import simulate_scenario
+from utils.mobile import inject_mobile_css
 
-st.set_page_config(page_title="Financial Simulator", page_icon="🔮", layout="wide")
+st.set_page_config(page_title="Financial Simulator", page_icon="🔮", layout="centered", initial_sidebar_state="collapsed")
+inject_mobile_css()
 
 st.title("Financial Simulator")
 st.markdown("Simulate financial decisions without affecting your real data")

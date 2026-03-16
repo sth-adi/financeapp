@@ -4,6 +4,10 @@ from datetime import datetime, date
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.database import get_transactions, add_transaction, update_transaction, delete_transaction
+from utils.mobile import inject_mobile_css
+
+st.set_page_config(page_title="Transactions", page_icon="💳", layout="centered", initial_sidebar_state="collapsed")
+inject_mobile_css()
 
 st.title("Transactions")
 

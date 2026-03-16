@@ -6,8 +6,10 @@ import pandas as pd
 from datetime import datetime, date
 from utils.database import get_goals, add_goal, update_goal, delete_goal
 from utils.charts import goal_progress_chart
+from utils.mobile import inject_mobile_css
 
-st.set_page_config(page_title="Savings Goals", page_icon="🎯", layout="wide")
+st.set_page_config(page_title="Savings Goals", page_icon="🎯", layout="centered", initial_sidebar_state="collapsed")
+inject_mobile_css()
 
 st.title("Savings Goals")
 
@@ -56,12 +58,13 @@ else:
             # Progress bar
             st.progress(pct_complete)
 
-            # Metrics row
-            m1, m2, m3, m4 = st.columns(4)
+            # Metrics rows (2+2 for better mobile layout)
+            m1, m2 = st.columns(2)
             m1.metric("Current Amount", f"${current_amount:,.2f}")
             m2.metric("Target Amount", f"${target_amount:,.2f}")
+            m3, m4 = st.columns(2)
             m3.metric("Remaining", f"${remaining:,.2f}")
-            m4.metric("Percentage Complete", f"{pct_complete * 100:.1f}%")
+            m4.metric("Progress", f"{pct_complete * 100:.1f}%")
 
             # Date row
             date_col, track_col = st.columns(2)

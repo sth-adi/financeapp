@@ -1,12 +1,15 @@
 import streamlit as st
 from utils.database import init_db
+from utils.mobile import inject_mobile_css
 
 st.set_page_config(
     page_title="Personal Finance Dashboard",
-    layout="wide",
+    layout="centered",
     page_icon="💰",
+    initial_sidebar_state="collapsed",
 )
 
+inject_mobile_css()
 init_db()
 
 st.sidebar.title("Navigation")
